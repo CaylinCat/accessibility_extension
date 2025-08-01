@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A11y Scanner</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 A11y Scanner</h1>
+            <p>Accessibility Scanner Admin</p>
+        </div>
+        
+        <div class="scan-form" id="scanForm">
+            <h3>Create New Scan</h3>
+            <form id="createScanForm">
+                <div class="form-group">
+                    <label for="scanUrl">URL to Scan:</label>
+                    <input type="url" id="scanUrl" name="scanUrl" placeholder="https://example.com" required>
+                    <button type="button" id="useCurrentUrl" class="small-btn">Use Current Page</button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="scanName">Scan Name:</label>
+                    <input type="text" id="scanName" name="scanName" placeholder="My Accessibility Scan" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="scanType">Scan Type:</label>
+                    <select id="scanType" name="scanType">
+                        <option value="full">Full Site Scan</option>
+                        <option value="single">Single Page</option>
+                        <option value="subset">Page Subset</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="scanLevel">Accessibility Level:</label>
+                    <select id="scanLevel" name="scanLevel">
+                        <option value="AA" selected>WCAG 2.1 AA</option>
+                        <option value="AAA">WCAG 2.1 AAA</option>
+                        <option value="A">WCAG 2.1 A</option>
+                    </select>
+                </div>
+                
+                <button type="submit" id="createScan" class="primary-btn">
+                    🚀 Create Scan
+                </button>
+            </form>
+        </div>
+        
+        <div class="actions">
+            <button id="openDashboard" class="secondary-btn">
+                📊 Open Dashboard
+            </button>
+            
+            <button id="toggleFormView" class="secondary-btn">
+                📝 Quick Links
+            </button>
+            
+            <button id="toggleDebug" class="secondary-btn">
+                🐛 Debug
+            </button>
+        </div>
+        
+        <div class="quick-links" id="quickLinks" style="display: none;">
+            <h3>Quick Links</h3>
+            <div class="links-grid">
+                <a href="#" id="reportsLink" class="link-item">Reports</a>
+                <a href="#" id="settingsLink" class="link-item">Settings</a>
+                <a href="#" id="historyLink" class="link-item">History</a>
+                <a href="#" id="helpLink" class="link-item">Help</a>
+            </div>
+            
+            <div class="legacy-actions">
+                <button id="openCreatePage" class="secondary-btn">
+                    📝 Open Create Page
+                </button>
+                <button id="getCurrentPage" class="secondary-btn">
+                    🔗 Scan Current Page
+                </button>
+            </div>
+        </div>
+        
+        <div class="status">
+            <div id="statusMessage" class="status-message"></div>
+        </div>
+        
+        <div class="debug-panel" id="debugPanel" style="display: none;">
+            <h4>🐛 Debug Info</h4>
+            <div id="debugContent"></div>
+            <button id="inspectFormFields" class="small-btn">Inspect A11y Form Fields</button>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html> 
